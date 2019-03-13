@@ -1,0 +1,210 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/line-awesome/css/line-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/fonts/open-sans/styles.css">-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/montserrat/styles.css">
+    <link rel="stylesheet" type="text/css" href="libs/tether/css/tether.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/jscrollpane/jquery.jscrollpane.css">
+    <link rel="stylesheet" type="text/css" href="libs/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/common.min.css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/themes/primary.min.css">
+    <link class="ks-sidebar-dark-style" rel="stylesheet" type="text/css" href="assets/styles/themes/sidebar-black.min.css">
+    <!-- END THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="libs/prism/prism.css">
+    <!-- original -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/libs/bootstrap-notify/bootstrap-notify.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="ks-navbar-fixed ks-sidebar-default ks-sidebar-position-fixed ks-page-header-fixed ks-theme-primary ks-page-loading">
+    <form id="Form1" runat="server">
+    <!-- BEGIN HEADER -->
+    <nav class="navbar ks-navbar">
+			<div href="index.html" class="navbar-brand">
+				<!-- BEGIN RESPONSIVE SIDEBAR TOGGLER -->
+				<a href="#" class="ks-sidebar-toggle"><i class="ks-icon la la-bars" aria-hidden="true"></i></a>
+				<a href="#" class="ks-sidebar-mobile-toggle"><i class="ks-icon la la-bars" aria-hidden="true"></i></a>
+				<!-- END RESPONSIVE SIDEBAR TOGGLER -->
+				<div class="ks-navbar-logo">
+					<a href="index.aspx" class="ks-logo">MakeWay</a>
+				</div>
+			</div>
+			<!-- END LOGO -->
+			<!-- BEGIN MENUS -->
+			<div class="ks-wrapper">
+				<nav class="nav navbar-nav">
+					<!-- BEGIN NAVBAR MENU -->
+					<div class="ks-navbar-menu"></div>
+					<!-- END NAVBAR MENU -->
+					<!-- BEGIN NAVBAR ACTIONS -->
+					<div class="ks-navbar-actions">
+						<!-- BEGIN NAVBAR ACTION BUTTON -->
+						<div class="nav-item nav-link btn-action-block">
+							<a class="btn btn-warning" href="http://www.smarttersstudio.com">
+								<span class="ks-action">Smartters' Studio</span>
+								<span class="ks-description">www.smarttersstudio.com</span>
+							</a>
+						</div>
+						<!-- END NAVBAR ACTION BUTTON -->
+						<!-- BEGIN NAVBAR MESSAGES -->
+						<div class="nav-item dropdown ks-messages">
+							<a class="nav-link dropdown-toggle"  href="message.aspx" role="button" aria-haspopup="true" aria-expanded="false">
+								<span class="la la-envelope ks-icon" aria-hidden="true">
+								</span>
+								<span class="ks-text">Messages</span>
+							</a>
+						</div>
+						<!-- END NAVBAR MESSAGES -->
+						<!-- BEGIN NAVBAR USER -->
+						<div class="nav-item dropdown ks-user">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+								<span class="ks-avatar">
+                                    <asp:Image ID="MasterNavProfileImage" runat="server" width="36" height="36"></asp:Image>
+								</span>
+								
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+								<a id="profileButton" class="dropdown-item" runat="server" href="profile.aspx">
+									<span class="la la-user ks-icon"></span>
+									<span>Profile</span>
+								</a>
+								 <asp:LinkButton ID="LogoutButton" class="dropdown-item" runat="server" onClick="logout">
+									    <span class="la la-sign-out ks-icon" aria-hidden="true"></span>
+									    <span>Logout</span>
+								    </asp:LinkButton>
+                                
+							</div>
+						</div>
+						<!-- END NAVBAR USER -->
+					</div>
+					<!-- END NAVBAR ACTIONS -->
+				</nav>
+
+				<!-- BEGIN NAVBAR ACTIONS TOGGLER -->
+				<nav class="nav navbar-nav ks-navbar-actions-toggle">
+					<a class="nav-item nav-link" href="#">
+						<span class="la la-ellipsis-h ks-icon ks-open"></span>
+						<span class="la la-close ks-icon ks-close"></span>
+					</a>
+				</nav>
+				<!-- END NAVBAR ACTIONS TOGGLER -->
+				<!-- BEGIN NAVBAR MENU TOGGLER -->
+				<nav class="nav navbar-nav ks-navbar-menu-toggle">
+					<a class="nav-item nav-link" href="#">
+						<span class="la la-th ks-icon ks-open"></span>
+						<span class="la la-close ks-icon ks-close"></span>
+					</a>
+				</nav>
+				<!-- END NAVBAR MENU TOGGLER -->
+			</div>
+			<!-- END MENUS -->
+			<!-- END HEADER INNER -->
+		</nav>
+    <!-- END HEADER -->
+    <div class="ks-page-container">
+        <!-- BEGIN DEFAULT SIDEBAR -->
+        <div class="ks-column ks-sidebar ks-info">
+            <div class="ks-wrapper ks-sidebar-wrapper">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="nav-item ks-user dropdown"><a class="nav-link dropdown-toggle" href="#"
+                        role="button" aria-haspopup="true" aria-expanded="false">
+                        <asp:Image ID="MasterSideBarProfileImage" runat="server" Width="36" Height="36" class="ks-avatar rounded-circle">
+                        </asp:Image>
+                        <div class="ks-info">
+                            <div class="ks-name">
+                                <asp:Label ID="MasterUserName" runat="server" Text=""></asp:Label>
+                            </div>
+                            <div class="ks-text">
+                                <asp:Label ID="MasterUserDesignation" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
+                    </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="profile.aspx">Profile</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="report.aspx"><span class="ks-icon la la-envelope-o">
+                    </span><span>Report</span> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="reportlist.aspx"><span class="ks-icon la la-book">
+                    </span><span>Report List</span> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="message.aspx"><span class="ks-icon la la-book">
+                    </span><span>Messages</span> </a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false"><span class="ks-icon la la-user"></span>
+                        <span>Doctor</span> </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="EmployeeRequestDoctor.aspx">Add Doctor</a>
+                            <a class="dropdown-item" href="AllDoctors.aspx">Doctor List</a> 
+                            <a class="dropdown-item" href="EmployeePendingDoctor.aspx">Doctor Approval</a>
+                             <a class="dropdown-item" href="EmployeeDeleteDoctor.aspx">Doctor Delete</a>
+                        </div>
+                    </li>
+                     <li class="nav-item"><a class="nav-link" href="JuniorsReport.aspx"><span class="ks-icon la la-envelope-o">
+                    </span><span>All Juniors</span> </a></li>
+                   
+                  
+                </ul>
+            </div>
+        </div>
+        <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/popper/popper.min.js"></script>
+    <script src="libs/responsejs/response.min.js"></script>
+    <script src="libs/loading-overlay/loadingoverlay.min.js"></script>
+    <script src="libs/tether/js/tether.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jscrollpane/jquery.jscrollpane.min.js"></script>
+    <script src="libs/jscrollpane/jquery.mousewheel.js"></script>
+    <script src="libs/flexibility/flexibility.js"></script>
+    <script src="libs/noty/noty.min.js"></script>
+    <script src="libs/velocity/velocity.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <script src="assets/scripts/common.min.js"></script>
+    
+ <script src="libs/bootstrap-notify/bootstrap-notify.min.js"></script>
+ <script src="libs/prism/prism.js"></script>
+<script type="application/javascript">
+    function success(msg) {
+        $.notify({
+            
+            message:msg
+        }, {
+            type: 'success-solid-active',
+            offset: {
+                x: 20,
+                y: 70
+            }
+        });
+    }
+    function danger(msg) {
+        $.notify({
+            message: msg
+        }, {
+            type: 'danger-solid-active',
+            offset: {
+                x: 20,
+                y: 70
+            }
+        });
+    }
+
+</script>
+        <div class="ks-column ks-page">
+            <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    
+    </form>
+</body>
+</html>
