@@ -17,7 +17,7 @@
                   
                         <asp:Table id="ksdatatable" class="table table-striped table-bordered" 
                              data-search="true" data-sort-name="name"
-                            data-sort-order="desc" runat="server" GridLines="Horizontal">
+                            data-sort-order="desc" runat="server" GridLines="Horizontal"> 
                         </asp:Table>
                       </div>
                 </div>
