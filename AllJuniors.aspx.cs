@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
+using System.Text;
+using MySql.Data.MySqlClient;
+
 
 public partial class AllJuniorsReport : System.Web.UI.Page
 {
@@ -67,6 +71,10 @@ public partial class AllJuniorsReport : System.Web.UI.Page
         string name=(dt.Rows[pos][1].ToString());
        Response.Redirect("JuniorsReport.aspx?id=" + result+"&name="+name);
     }
+    protected void DownloadButton_Click(object sender, EventArgs e)
+    {
+        ExcelCreator.Downloadfile(ksdatatable);
+    }
 
-    
+
 }

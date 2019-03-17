@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Text;
 
 public partial class reportlist : System.Web.UI.Page
 {
@@ -46,5 +48,9 @@ public partial class reportlist : System.Web.UI.Page
             lblerrormsg.Text = "No Records Found";
         }
        
+    }
+    protected void DownloadButton_Click(object sender, EventArgs e)
+    {
+        ExcelCreator.Downloadfile(ksdatatable);
     }
 }

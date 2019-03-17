@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="reportlist.aspx.cs" Inherits="reportlist" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="reportlist.aspx.cs" Inherits="reportlist" EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <head>
@@ -39,10 +39,17 @@
                 <h3>Reporting</h3>
             </section>
         </div>
+        
         <div class="ks-page-content">
             <div class="ks-page-content-body ks-tabs-page-container">
              <div class="tab-content">
                 <div class="tab-pane active ks-column-section" id="in-patient" role="tabpanel">
+             <center>
+                 <div style="margin-bottom: 50px">
+                     <asp:Button ID="DownloadButton" runat="server" Text="Download File" OnClick="DownloadButton_Click"/>
+
+                 </div>
+             </center> 
 				<div class="row" style="justify-content:center">
                         <%--<input type="text" name="daterange" value="10/24/1984" class="form-control ks-daterange-single col-xl-3" style="margin:10px;justify-content:center;text-align:center">
 						<input type="text" name="daterange" value="10/24/1984" class="form-control ks-daterange-single col-xl-3" style="margin:10px;justify-content:center;text-align:center">

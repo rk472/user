@@ -625,15 +625,126 @@ public class DBHelper
      }
      public static String getDoctorName(String id)
     {
-        return "";
+        MySqlConnection conn = new MySqlConnection(Constants.CONNECTION_STRING);
+        try
+        {
+           
+            //DataSet ds = new DataSet();
+            conn.Open();
+            string query = "select Name from  t_doctor where  id=@id";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.Add(new MySqlParameter("@id", id));
+            var queryResult = cmd.ExecuteScalar();
+            if (queryResult != null)
+               
+                return(Convert.ToString(queryResult));
+            else
+                
+                return  null;
+
+            //MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            //adp.Fill(ds);
+            //conn.Close();
+            //return ds.Tables[0];
+        }
+        catch (MySqlException e)
+        {
+            return null;
+        }
+        finally
+        {
+            conn.Close();
+        }
+
     }
-    public static bool inputDetailedReport(String docId,String docName,Employee employee)
+    public static bool inputDetailedReport(String docId,String docName,string date,Employee employee)
     {
-        return true;
+       
+        MySqlConnection conn = new MySqlConnection(Constants.CONNECTION_STRING);
+        try
+        {
+            conn.Open();
+            string query = "insert into t_doctor_report(doc_id,doc_name,emp_name,hq,state,date) values(@doc_id,@doc_name,@emp_name,@hq,@state,@date);";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.Add(new MySqlParameter("@doc_id", docId));
+            cmd.Parameters.Add(new MySqlParameter("@doc_name",docName));
+            cmd.Parameters.Add(new MySqlParameter("@emp_name",employee.name));
+            cmd.Parameters.Add(new MySqlParameter("@hq", employee.hq));
+            cmd.Parameters.Add(new MySqlParameter("@state", employee.region));
+            cmd.Parameters.Add(new MySqlParameter("@date",date ));
+
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+
+        }
+        catch (MySqlException e)
+        {
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
     }
     public static bool isAlreadyExist(List<String> ids,String date)
     {
-        return true;
+       
+        MySqlConnection conn = new MySqlConnection(Constants.CONNECTION_STRING);
+        conn.Open();
+        DataSet ds = new DataSet();
+        try
+        {
+            
+            for (int i = 0; i < ids.Count; i++)
+            {
+                string docId = ids[i];
+                string query = "SELECT id FROM t_doctor_report WHERE doc_id=@id AND date=@date";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+           
+                cmd.Parameters.AddWithValue("@id", docId);
+                cmd.Parameters.AddWithValue("@date", date);
+                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                adp.Fill(ds);
+                if(ds.Tables[0].Rows.Count>0)
+                {
+                    return false;
+                }
+                
+            //MySqlDataReader reader = cmd.ExecuteReader();
+
+                //if (reader.HasRows)
+                //{
+                //    return false;
+
+                //}
+                // result = Convert.ToInt32(cmd.ExecuteScalar());
+                //if (result > 0)
+                //{
+                //    return false ;
+
+                //}
+
+            }
+            return true;
+
+        }
+        catch (MySqlException e)
+        { 
+
+
+           return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+
     }
     
 

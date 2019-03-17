@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
+using System.Text;
+using MySql.Data.MySqlClient;
 
 public partial class AllDoctors : System.Web.UI.Page
 {
@@ -38,5 +41,10 @@ public partial class AllDoctors : System.Web.UI.Page
             }
         }
 
+    }
+    
+    protected void DownloadButton_Click(object sender,EventArgs e)
+    {
+       ExcelCreator.Downloadfile(ksdatatable);
     }
 }

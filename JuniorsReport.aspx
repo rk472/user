@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="JuniorsReport.aspx.cs" Inherits="JuniorsReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="JuniorsReport.aspx.cs" Inherits="JuniorsReport" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link rel="stylesheet" type="text/css" href="libs/bootstrap-table/bootstrap-table.min.css"> <!-- Original -->
@@ -8,6 +8,12 @@
 <div class="ks-page-content">
         <div class="ks-page-content-body ks-content-nav">
             <div class="ks-nav-body">
+                 <center>
+                 <div style="margin-bottom: 50px">
+                     <asp:Button ID="DownloadButton" runat="server" Text="Download File" OnClick="DownloadButton_Click"/>
+
+                 </div>
+             </center> 
              <asp:Label ID="lblId" runat="server"></asp:Label>
                 <asp:Label ID="lblEmpName" runat="server"></asp:Label>
                 <asp:Label ID="lblReport" runat="server"></asp:Label>

@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
+using System.Text;
+using MySql.Data.MySqlClient;
 
 public partial class JuniorsReport : System.Web.UI.Page
 {
@@ -73,5 +76,9 @@ public partial class JuniorsReport : System.Web.UI.Page
         String id = (dt.Rows[pos][0].ToString());
        string name = (dt.Rows[pos][1].ToString());
         Response.Redirect("EmpDailyReport.aspx?id=" + id + "&name=" + name);
+    }
+    protected void DownloadButton_Click(object sender, EventArgs e)
+    {
+        ExcelCreator.Downloadfile(ksdatatable);
     }
 }

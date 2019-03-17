@@ -478,7 +478,7 @@ public partial class report : System.Web.UI.Page
                     {
                         String docId = ids[i];
                         String docName = DBHelper.getDoctorName(docId);
-                        if (DBHelper.inputDetailedReport(docId, docName, employee))
+                        if (DBHelper.inputDetailedReport(docId, docName, ReportDatetxt.Text, employee))
                         {
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "Danger ",
                                         "success('Successfully reported')", true);
@@ -501,7 +501,7 @@ public partial class report : System.Web.UI.Page
                 }
             } else {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Danger ",
-                           "danger('You have reported as leave in this day')", true);
+                           "danger(' same doctor cannot be reported twice on this day')", true);
             }
         }
     }
